@@ -1,0 +1,70 @@
+/* Estilo para el contenedor principal de la página de login */
+.login-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Añadir esta línea para que los elementos se apilen verticalmente */
+  background-color: #153240;
+  position: relative;
+}
+/* Estilo para el logo en la parte superior */
+.logo {
+  margin-bottom: 20px; /* Añadir un margen inferior para separar el logo del recuadro */
+  width: 20vw; /* Cambiar el tamaño del logo a una unidad relativa */
+  max-width: 300px; /* Asegurar que no crezca demasiado en pantallas grandes */
+}
+/* Estilo para el recuadro del formulario de login */
+.login-box {
+  padding: 16px;
+  background-color: #c2c2c2;
+  width: 90%; /* Hacer el ancho relativo para pantallas pequeñas */
+  max-width: 400px; /* Limitar el ancho máximo del recuadro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir una sombra para darle profundidad */
+  border-radius: 8px; /* Bordes redondeados para un diseño más moderno */
+}
+
+/* Estilo para el contenedor de inputs */
+.input-container {
+  background-color: #9b9b9b; /* Color del recuadro */
+  padding: 16px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio debajo del recuadro */
+  border: 2px solid #9b9b9b; /* Borde del recuadro */
+}
+/* Estilo para cada grupo de input y label */
+.input-group {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  align-items: center; /* Centrar verticalmente */
+  margin-bottom: 15px; /* Espacio entre cada grupo */
+}
+/* Estilo para el label */
+.input-group label {
+  color: black; /* Cambiar el color del texto a negro */
+  font-weight: bold; /* Hacer el texto en negrita */
+  margin-right: 10px; /* Espacio entre el label y el input */
+  flex-basis: 30%; /* Ajustar el tamaño del label */
+}
+
+/* Estilo para el input */
+.input-group input {
+  background-color: white; /* Color de fondo del input */
+  border: 1px solid #ccc; /* Añadir un borde al input */
+  border-radius: 3px; /* Bordes redondeados para el input */
+  flex-grow: 1; /* Permitir que el input ocupe el espacio restante */
+  padding: 8px; /* Espaciado interno del input */
+}
+
+/* Estilo para el botón */
+.btn-success {
+  background-color: #153240; /* Color inicial del botón */
+  border: none; /* Quitar el borde por defecto */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  color: white; /* Color del texto */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+/* Estilo al pasar el cursor sobre el botón */
+.btn-success:hover {
+  background-color: green; /* Cambiar el color a verde al pasar el cursor */
+}

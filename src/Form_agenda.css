@@ -1,0 +1,227 @@
+/* Estilo para el contenedor principal del menú */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+/* Estilo para el encabezado */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+/* Estilo para el título del encabezado */
+.header-title {
+    font-size: 24px;
+    color: white;
+}
+
+/* Estilo para el logo en el encabezado */
+.header-logo {
+    width: 100px;
+}
+
+/* Estilo para el cuerpo del menú */
+.menu-body {
+    display: flex;
+    flex-grow: 1; /* Ocupa el espacio restante */
+    background-color: #153240; /* Color de fondo para todo el cuerpo */
+}
+
+/* Estilo para el menú lateral */
+.menu-sidebar {
+    width: 250px;
+    background-color: #000;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+/* Estilo para el menú desplegable */
+.dropdown-menu {
+    margin-top: 10px;
+    background-color: #000; /* Fondo negro */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Estilo para los botones del menú */
+.menu-option {
+    text-decoration: none; /* Quita el subrayado */
+    color: white; /* Color del texto */
+    padding: 15px 10px; /* Ajusta el padding para dar espacio a la izquierda */
+    display: flex; /* Flexbox para ajustar el contenido */
+    justify-content: flex-start; /* Alinea el contenido al inicio (izquierda) */
+    align-items: center; /* Centra verticalmente el contenido */
+    background-color: transparent; /* Fondo transparente inicialmente */
+    border: none; /* Quita los bordes del botón */
+    cursor: pointer; /* Muestra el cursor como puntero */
+    font-size: 16px; /* Ajusta el tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de fondo */
+    width: 100%; /* Asegura que el botón ocupe el 100% del ancho de la barra lateral */
+    height: 50px; /* Establece una altura fija para todos los botones */
+}
+
+/* Efecto hover en los botones */
+.menu-option:hover {
+    background-color: #153240; /* Cambia el fondo a azul al pasar el ratón */
+    color: white; /* Asegúrate de que el texto siga siendo blanco */
+}
+
+/* Estilo para el contenido principal */
+.menu-content {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    padding: 0; /* Remueve el padding para que el fondo ocupe todo el espacio */
+    color: white;
+}
+
+/* Estilo para el cuadro de información */
+.info-box {
+    background-color: #c2c2c2; /* Color del cuadro */
+    padding: 20px; /* Espacio interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 40px 100px; /* Espacio superior e inferior de 20px, laterales de 40px */
+    text-align: center; /* Centrar texto dentro del cuadro */
+}
+
+/* Estilo para el título dentro del cuadro */
+.info-box h2 {
+    color: black; /* Cambia el color del texto a negro */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo para el primer cuadro de cuadro de color blanco en input */
+.input-box {
+    background-color: white; /* Color de fondo blanco */
+    padding: 20px; /* Espacio interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 30px; /* Espacio superior para separar del título */
+}
+
+/* Estilo para las filas del formulario */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Para que ocupen el espacio disponible */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas más pequeñas */
+}
+
+/* Estilo para agrupar los inputs de docente y programa */
+.combined-inputs {
+    display: flex;
+    gap: 300px; /* Aumenta este valor para separar más los inputs */
+}
+
+/* Estilo para los labels */
+.form-row label {
+    flex: 0 0 100px; /* Ajusta el ancho del label según sea necesario */
+    margin-right: 10px; /* Espaciado entre el label y el input */
+    color: black; /* Cambia el color del texto a negro */
+    font-weight: bold; /* Aplica negrita al texto */
+}
+
+/* Estilo para los inputs y select */
+.form-row input,
+.form-row select {
+    padding: 8px; /* Añade algo de espacio interno */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Un borde para el input */
+    background-color: #e0e0e0; /* Color de fondo similar a la imagen */
+}
+
+/* Estilo específico para inputs de texto (DOCENTE, PROGRAMA, FACULTAD, PERIODO) */
+.form-row input[type="text"] {
+    min-width: 400px; /* Ancho mínimo */
+    max-width: 100%; /* Ancho máximo (ocupa el espacio disponible) */
+}
+
+/* Estilo específico para el input de tipo "date" */
+.form-row input[type="date"] {
+    width: 150px; /* Establece un ancho fijo para el input de fecha */
+    padding: 8px;
+}
+
+/* Estilo para el título dentro del cuadro de información adicional */
+.docencia-title {
+    margin-top: 60px; /* Espacio entre el cuadro blanco y el nuevo texto */
+    color: black; /* Color del texto */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilo para los selects del primer grupo (PROGRAMA y FACULTAD) */
+.primary-select {
+    max-width: 400px; /* Ajusta el ancho máximo del select */
+    flex-grow: 1; /* Para que ocupe el espacio disponible */
+    padding: 8px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde alrededor del select */
+    background-color: #e0e0e0; /* Fondo rojo */
+    color: black; /* Color del texto */
+}
+
+/* Estilo para los selects del segundo grupo (Programa, Grupo y Sede) */
+.secondary-select {
+    max-width: 200px; /* Ajusta el ancho máximo del select */
+    flex-grow: 1; /* Para que ocupe el espacio disponible */
+    padding: 8px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde alrededor del select */
+    background-color: #e0e0e0; /* Fondo verde claro */
+    color: black; /* Color del texto */
+}
+
+/* Estilo para el nuevo cuadro blanco dentro del cuadro gris */
+.additional-box {
+    background-color: white; /* Color blanco */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 20px; /* Espaciado superior para separar del título */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilo para la asignatura seleccionada */
+.selected-asignatura {
+    margin-top: 20px; /* Espacio entre la selección y el texto */
+    padding: 5px; /* Espacio interno */
+    background-color: blue; /* Fondo azul */
+    border-radius: 5px; /* Bordes redondeados */
+    color: white; /* Color del texto */
+    text-align: left;
+    min-width: 8%; /* Ancho mínimo */
+    max-width: 13%; /* Ancho máximo (ocupa el espacio disponible) */
+}
+
+/* Estilo para los labels de Programa, Grupo, Sede, Dedicación (horas semanales), Dedicación (horas semestre) */
+.label-input-row {
+    display: flex;
+    justify-content: space-between; /* Alinea los labels de forma horizontal */
+    margin-top: 10px; /* Espacio superior para separar de los elementos anteriores */
+    flex-wrap: wrap; /* Permite que los labels se ajusten en pantallas más pequeñas */
+}
+
+/* Estilo para los labels específicos */
+.label-input-row label {
+    flex: 1; /* Cada label ocupa el mismo espacio */
+    text-align: left; /* Centra el texto dentro de cada label */
+    color: black; /* Color del texto negro */
+    font-weight: bold; /* Aplica negrita al texto */
+}
+
+/* Estilo para el select del Grupo */
+.form-row #grupo {
+    flex-grow: 1; /* Para que ocupe el espacio disponible */
+}
+
+/* Estilo para separar los selects en la fila adicional */
+.additional-box .form-row {
+    gap: 20px; /* Espacio entre los selects */
+}
