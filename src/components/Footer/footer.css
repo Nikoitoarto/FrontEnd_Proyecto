@@ -1,0 +1,29 @@
+.footer {
+    background-color: #153240; /* Color de fondo oscuro */
+    color: #ffffff;            /* Color de texto blanco */
+    text-align: center;        /* Centrar el texto */
+    padding: 8px 0;          /* Espaciado superior e inferior */
+    position: relative;        /* Para el posicionamiento absoluto interno */
+    bottom: 0;                 /* Asegura que se quede al final de la página */
+    width: 100%;               /* Ancho completo */
+}
+
+/* Estilo para enlaces en el footer */
+.footer a {
+    color: #ffffff;            /* Color de enlace blanco */
+    text-decoration: none;     /* Quitar subrayado */
+    margin: 0 10px;           /* Espaciado entre enlaces */
+    transition: color 0.3s;   /* Transición suave para el cambio de color */
+}
+
+/* Estilo para el hover en los enlaces */
+.footer a:hover {
+    color: #f39c12;            /* Color de enlace en hover (naranja) */
+}
+
+/* Estilo para el copyright */
+.footer p {
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;        /* Margen superior */
+}

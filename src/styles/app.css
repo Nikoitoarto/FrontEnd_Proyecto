@@ -1,0 +1,41 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Toma toda la altura de la pantalla */
+  overflow: hidden; /* Previene scroll en el contenedor App */
+}
+
+/* Estilo para el contenedor de inputs */
+.input-container {
+  background-color: #9b9b9b; /* Color del recuadro */
+  padding: 16px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio debajo del recuadro */
+  border: 2px solid #9b9b9b; /* Borde del recuadro */
+}
+
+/* Estilo para cada grupo de input y label */
+.input-group {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  align-items: center; /* Centrar verticalmente */
+  margin-bottom: 15px; /* Espacio entre cada grupo */
+}
+
+/* Estilo para el label */
+.input-group label {
+  color: black; /* Cambiar el color del texto a negro */
+  font-weight: bold; /* Hacer el texto en negrita */
+  margin-right: 10px; /* Espacio entre el label y el input */
+  flex-basis: 30%; /* Ajustar el tamaño del label */
+}
+
+/* Estilo para el input */
+.input-group input {
+  background-color: white; /* Color de fondo del input */
+  border: 1px solid #ccc; /* Añadir un borde al input */
+  border-radius: 3px; /* Bordes redondeados para el input */
+  flex-grow: 1; /* Permitir que el input ocupe el espacio restante */
+  padding: 8px; /* Espaciado interno del input */
+}
+
+

@@ -1,0 +1,45 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100%;
+    background-color: #153240;
+    padding-top: 20px;
+    transform: translateX(-230px);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar .hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-nav ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar-nav ul li {
+    color: white;
+    text-decoration: none;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.sidebar-nav ul li:hover {
+    background-color: #575757;
+    color: #fff; /* Cambia el color del texto al pasar el mouse */
+}

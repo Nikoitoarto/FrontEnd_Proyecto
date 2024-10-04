@@ -1,0 +1,27 @@
+.header .logo-container {
+    margin-left: auto !important;        
+}
+
+.header .logo {
+    width: auto; /* Cambiar el tamaño del logo a una unidad relativa */
+    height: 90px;               /* Ajustar la altura del logo */
+    margin-left: auto;          /* Empujar el logo a la derecha */
+    margin-bottom: 0px !important;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:  #153240;/* Azul oscuro */
+    color: white;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 20px; /* Espacio entre el ícono y el título */
+}

@@ -1,0 +1,19 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease; /* Transición suave para el margen */
+}
+
+.sidebar-open {
+    margin-left: 170px; /* Ajusta este valor al ancho de tu sidebar */
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px; /* Espacio para el sidebar */
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    overflow-y: auto; /* Aquí es donde estará el scroll */
+}

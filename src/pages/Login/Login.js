@@ -1,22 +1,18 @@
+import './login.css';
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import './App.css';
-function Login() {
-    const navigate = useNavigate(); // Hook para la navegación
+import { useNavigate } from 'react-router-dom';
+import Logo from 'components/Logo';
+
+const Login = (props) => {
+    const navigate = useNavigate(); 
     const handleLogin = (event) => {
-        event.preventDefault(); // Evita el comportamiento predeterminado del formulario
-        // Aquí puedes validar las credenciales si es necesario
-        navigate('/menu'); // Redirige a la página del menú
+        event.preventDefault(); 
+        localStorage.setItem('authToken', 'fakeLogin');
+        navigate('/main'); // Redirige a la página del menú
     };
     return (
         <div className='login-container'>
-            <img 
-                src="https://corhuila.edu.co/wp-content/uploads/2021/03/logo-cuadrado-blanco.png" 
-                alt="Logo" 
-                className="logo" 
-            />
+            <Logo/>
             <div className='login-box'>
                 <form onSubmit={handleLogin}>
                     <div className='mb-3 text-center'>
@@ -41,4 +37,5 @@ function Login() {
         </div>
     );
 }
+
 export default Login;

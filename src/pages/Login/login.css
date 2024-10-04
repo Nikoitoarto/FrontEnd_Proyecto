@@ -1,0 +1,41 @@
+.login-container .logo-container {
+    margin-left: 0px !important
+}
+
+.login-container .logo {
+    margin-bottom: 20px; /* Añadir un margen inferior para separar el logo del recuadro */
+    width: 20vw; /* Cambiar el tamaño del logo a una unidad relativa */
+    max-width: 300px; /* Asegurar que no crezca demasiado en pantallas grandes */
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Añadir esta línea para que los elementos se apilen verticalmente */
+    background-color: #153240;
+    position: relative;
+}
+
+.login-box {
+    padding: 16px;
+    background-color: #c2c2c2;
+    width: 90%; /* Hacer el ancho relativo para pantallas pequeñas */
+    max-width: 400px; /* Limitar el ancho máximo del recuadro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir una sombra para darle profundidad */
+    border-radius: 8px; /* Bordes redondeados para un diseño más moderno */
+}
+
+.btn-success {
+    background-color: #153240; /* Color inicial del botón */
+    border: none; /* Quitar el borde por defecto */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    color: white; /* Color del texto */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.btn-success:hover {
+    background-color: green; /* Cambiar el color a verde al pasar el cursor */
+}
