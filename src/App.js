@@ -15,7 +15,7 @@ function App() {
   return (
     <AppProvider>
       <Router>
-          <div className="app">
+          <div className="app" >
             <Routes>
                 <Route path="/" element={isAuthenticated() ?<Navigate to="/main" /> : <Navigate to="/login" />} />
                 <Route path="/login" element={<Login/>} />
