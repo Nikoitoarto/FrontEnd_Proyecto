@@ -1,0 +1,13 @@
+.sa-agenda-container {
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.sa-agenda-title {
+    margin-bottom: 12px; /* Espacio entre el título y el div */
+    color: #153240;
+}
+
+.sa-agenda-component {
+    display: block; /* Permite que el div component se ajuste al contenido */
+    /*text-align: left; /* Evita que el contenido del div component esté centrado */
+}

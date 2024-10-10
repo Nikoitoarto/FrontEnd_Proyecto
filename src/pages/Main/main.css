@@ -13,7 +13,96 @@
     flex-grow: 1;
     padding: 20px;
     margin-left: 60px; /* Espacio para el sidebar */
+    margin-right: 60px; /* Espacio para el sidebar */
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    font-size: medium;
     overflow-y: auto; /* Aquí es donde estará el scroll */
+}
+
+/* Contenedor general del formulario */
+.form-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    justify-content: space-between; /* Espaciado entre los elementos */
+    gap: 20px; /* Espacio entre los elementos del formulario */
+    padding: 20px;
+    border: 1px solid #153240;
+    border-radius: 10px;
+    background-color: #f2f5f8;
+    max-width: 100%;
+    margin: 0 auto;
+}
+  
+/* Etiquetas del formulario */
+.form-label {
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #153240;
+}
+
+/* Inputs del formulario */
+.form-input, 
+.form-select {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #153240;
+    border-radius: 5px;
+    background-color: white;
+    color: #153240;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+/* Estilo de los mensajes de error */
+.form-error-msg {
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: -10px; /* Reducir espacio superior */
+}
+
+/* Contenedor del botón */
+.form-button-container {
+    grid-column: 1 / -1; /* Hace que el contenedor del botón ocupe todas las columnas */
+    display: grid; /* Utiliza grid para centrar */
+    place-items: center; /* Centra vertical y horizontalmente el botón */
+    margin-top: 30px;
+}
+
+/* Botón */
+.form-button {
+    padding: 10px 20px; /* Estilos del botón */
+    background-color: #153240; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.form-button:hover {
+    background-color: #1a4a5d; /* Nuevo color cuando el mouse está sobre el botón */
+}
+
+/* Asegura que los elementos se comporten adecuadamente en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .form-group {
+        flex: 1 1 100%; /* Los elementos ocupan el 100% del ancho en pantallas pequeñas */
+    }
+
+    .form-button-container {
+        margin-top: 10px;
+    }
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #153240;
+    border-radius: 5px;
+    background-color: white;
+    color: #153240;
+    font-size: 12px;
+    box-sizing: border-box;
 }

@@ -12,6 +12,7 @@ const Sidebar = ({ isOpen, toggleSidebar, onMenuClick}) => {
           <ul>
             <li onClick={() => onMenuClick('home')}>Inicio</li>
             <li onClick={() => onMenuClick('pending')}>Pendientes</li>
+            <li onClick={() => onMenuClick('teachingManagement')}>Gestion de Docencia</li>
             <li onClick={() => onMenuClick('agendaForm')}>Formulario Agenda</li>
             <li onClick={() => onMenuClick('followUp')}>Seguimiento</li>
           </ul>

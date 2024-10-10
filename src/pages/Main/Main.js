@@ -4,6 +4,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Sidebar from 'components/Sidebar';
 import AgendaForm from 'components/AgendaForm';
+import SemiannualAgenda from 'pages/SemiannualAgenda';
 
 const Main = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -20,6 +21,8 @@ const Main = () => {
         switch (menuItem) {
             case 'agendaForm':
                 return <AgendaForm />;
+            case 'teachingManagement':
+                return <SemiannualAgenda />
             case 'home':
             default:
                 return (
