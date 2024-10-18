@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './main.css'
+import { useAppContext } from 'context/AppContext';
+import Loader from 'components/Loader';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Sidebar from 'components/Sidebar';
@@ -9,6 +11,7 @@ import SemiannualAgenda from 'pages/SemiannualAgenda';
 const Main = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [menuItem, setMenuItem] = useState('home');
+    const { isLoading } = useAppContext();
     
     const toggleSidebar = () => {
       setSidebarOpen(!isSidebarOpen);
@@ -34,14 +37,17 @@ const Main = () => {
         }
     };
     return (
-        <div className={`main-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-            <Header toggleSidebar={toggleSidebar} />
-            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} onMenuClick={handleMenuClick} />
-            <main className="content">
-                {renderActiveComponent()} {/* Renderiza el componente activo */}
-            </main>
-            <Footer />
-        </div>
+        <>
+        {isLoading && <Loader />} {/* Muestra el loader si isLoading es true */}
+            <div className={`main-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+                <Header toggleSidebar={toggleSidebar} />
+                <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} onMenuClick={handleMenuClick} />
+                <main className="content">
+                    {renderActiveComponent()} {/* Renderiza el componente activo */}
+                </main>
+                <Footer />
+            </div>
+        </>
     );
 }
 

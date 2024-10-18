@@ -4,14 +4,33 @@ import React from 'react';
 import {Controller, useForm } from 'react-hook-form';
 import { registerLocale } from  "react-datepicker";
 import DatePicker from "react-datepicker";
+import { createForm } from 'services/gsd/formSvc';
+import { createFormPayload } from 'api/gsdApi/payloads/createForm'
 import { es } from 'date-fns/locale/es';
 
 const TeacherData = () => {
     registerLocale('es', es)
     const fieldRequiredMsg = 'Este campo es requerido';
     const {control, register, handleSubmit, formState: { errors } } = useForm();
+    
     const onSubmit = (data) => {
-        console.log(data);
+        const formattedData = {
+            ...data,
+            custom_date_picker: data.custom_date_picker.toISOString(), // O utiliza el formato que prefieras
+        };
+        console.log(formattedData); 
+        let response = createForm(
+            createFormPayload(
+                3,
+                formattedData.tacher_name,
+                formattedData.academic_program,
+                formattedData.faculty,
+                formattedData.academic_period,
+                formattedData.custom_date_picker
+            )
+        );
+        console.log(response)
+
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form-flex">

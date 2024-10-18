@@ -1,0 +1,34 @@
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurecer fondo */
+    display: flex;
+    flex-direction: column; /* Cambia a columna para apilar elementos */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Ligero color de borde */
+    border-top: 8px solid #153240; /* Color principal */
+    border-radius: 50%;
+    width: 35px; /* Tamaño ajustado */
+    height: 35px; /* Tamaño ajustado */
+    animation: spin 2s linear infinite;
+    margin-bottom: 10px; /* Espacio entre el círculo y el texto */
+}
+
+.loading-text {
+    color: #fff; /* Color del texto */
+    font-size: 1.0rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita para el texto */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
