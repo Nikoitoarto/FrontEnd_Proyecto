@@ -1,0 +1,22 @@
+.teacher-name-container {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-name-label {
+    text-align: left !important; /* Centra el texto horizontalmente */
+}
+
+.teacher-name-readonly-input {
+    width: 39%;
+    padding: 6px;
+    border: 1px solid #153240;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    color: #153240;
+    font-size: 12px;
+    box-sizing: border-box;
+    color: #808080; /* Color de texto gris */
+    cursor: not-allowed; 
+}

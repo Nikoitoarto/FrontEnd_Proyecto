@@ -1,6 +1,5 @@
 export const createFormPayload = (
     userId, 
-    teacherName, 
     academicProgram, 
     faculty, 
     academicPeriod, 
@@ -8,12 +7,10 @@ export const createFormPayload = (
 ) => ({
     "usuarioId": userId,
     "formulario": {
-      "state": true,
       "fechaFormulario": formDate,
-      "nombreProfesor": teacherName,
       "facultad": faculty,
       "programa": academicProgram,
       "periodo": academicPeriod,
-      "estado": "ENVIADO"
+      "estado": "DILIGENCIADO"
     }
 });

@@ -6,47 +6,52 @@ import { registerLocale } from  "react-datepicker";
 import DatePicker from "react-datepicker";
 import { createForm } from 'services/gsd/formSvc';
 import { createFormPayload } from 'api/gsdApi/payloads/createForm'
+import { useLoadTeacherData } from 'hooks/useLoadTeacherData'
 import { es } from 'date-fns/locale/es';
 
 const TeacherData = () => {
     registerLocale('es', es)
     const fieldRequiredMsg = 'Este campo es requerido';
-    const {control, register, handleSubmit, formState: { errors } } = useForm();
-    
-    const onSubmit = (data) => {
+    const {control, register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
+    const tacherNameValue = watch('tacher_name');
+
+    useLoadTeacherData(11, setValue);
+
+    const onSubmit = async (data) => {
         const formattedData = {
             ...data,
             custom_date_picker: data.custom_date_picker.toISOString(), // O utiliza el formato que prefieras
         };
         console.log(formattedData); 
-        let response = createForm(
+        let response = await createForm(
             createFormPayload(
                 3,
-                formattedData.tacher_name,
                 formattedData.academic_program,
                 formattedData.faculty,
                 formattedData.academic_period,
                 formattedData.custom_date_picker
             )
         );
-        console.log(response)
-
+        if (response.status) {
+            setValue(
+                'tacher_name', 
+                 response.data.nombreProfesor,
+                 {shouldDirty: true}
+            );
+        }
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form-flex">
-           <div>
-                <label htmlFor="tacher_name" className='form-label'>
+           <div className="teacher-name-container">
+                <label htmlFor="tacher_name" className='teacher-name-label form-label'>
                     Nombre del docente:
                 </label>
                 <input 
                     id="tacher_name" 
-                    className='form-input'
-                    {...register(
-                        'tacher_name', 
-                        { required: fieldRequiredMsg }
-                    )}
+                    className='teacher-name-readonly-input' 
+                    defaultValue={tacherNameValue}
+                    readOnly
                 />
-                {errors.tacher_name && <span className='form-error-msg'>{errors.tacher_name.message}</span>}
             </div>
             <div>
                 <label htmlFor="academic_program" className='form-label'>
@@ -61,11 +66,11 @@ const TeacherData = () => {
                     )}
                 >
                     <option value="">Selecciona un programa</option>
-                    <option value="system_engineering">Ingeniería Sistemas</option>
-                    <option value="environmental_engineering">Ingeniería Ambiental</option>
-                    <option value="industrial_engineering">Ingeniería Industrial</option>
-                    <option value="mechatronic_engineering">Ingeniería Mecatrónica</option>
-                    <option value="renewable_energy_engineering">Ingeniería Energía Renovables</option>
+                    <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
+                    <option value="Ingeniería Ambiental">Ingeniería Ambiental</option>
+                    <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+                    <option value="Ingeniería Mecatrónica">Ingeniería Mecatrónica</option>
+                    <option value="Ingeniería Energía Renovables">Ingeniería Energía Renovables</option>
                 </select>
                 {errors.academic_program && <span className='form-error-msg'>{errors.academic_program.message}</span>}
             </div>
@@ -82,7 +87,7 @@ const TeacherData = () => {
                     )}
                 >
                     <option value="">Selecciona una facultad</option>
-                    <option value="faculty_engineering">Facultad de Ingeniería</option>
+                    <option value="Ingeniería">Facultad de Ingeniería</option>
                 </select>
                 {errors.faculty && <span className='form-error-msg'>{errors.faculty.message}</span>}
             </div>

@@ -106,3 +106,15 @@
     font-size: 12px;
     box-sizing: border-box;
 }
+
+.readonly-input {
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    color: #808080; /* Color de texto gris */
+    border: 1px solid #ccc; /* Borde más suave */
+    padding: 8px;
+    cursor: not-allowed; /* Mostrar cursor de no permitido */
+}
+
+.readonly-input:focus {
+    outline: none; /* Elimina el borde azul al enfocar */
+}
