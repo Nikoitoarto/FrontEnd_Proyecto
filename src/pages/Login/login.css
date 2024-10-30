@@ -1,41 +1,78 @@
-.login-container .logo-container {
-    margin-left: 0px !important
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #153240;
+    font-family: Arial, sans-serif;
 }
 
-.login-container .logo {
-    margin-bottom: 20px; /* Añadir un margen inferior para separar el logo del recuadro */
-    width: 20vw; /* Cambiar el tamaño del logo a una unidad relativa */
-    max-width: 300px; /* Asegurar que no crezca demasiado en pantallas grandes */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 270px;
 }
 
 .login-container {
+    background-color: #9b9b9b;
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.login-form {
     display: flex;
-    height: 100vh;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-direction: column; /* Añadir esta línea para que los elementos se apilen verticalmente */
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -8px;
+}
+
+.error-message-container {
+    margin-top: 12px;
+}
+
+.submit-button {
     background-color: #153240;
-    position: relative;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
 }
 
-.login-box {
-    padding: 16px;
-    background-color: #c2c2c2;
-    width: 90%; /* Hacer el ancho relativo para pantallas pequeñas */
-    max-width: 400px; /* Limitar el ancho máximo del recuadro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir una sombra para darle profundidad */
-    border-radius: 8px; /* Bordes redondeados para un diseño más moderno */
-}
-
-.btn-success {
-    background-color: #153240; /* Color inicial del botón */
-    border: none; /* Quitar el borde por defecto */
-    border-radius: 15px; /* Bordes redondeados */
-    padding: 10px 20px; /* Espaciado interno */
-    color: white; /* Color del texto */
-    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
-}
-
-.btn-success:hover {
-    background-color: green; /* Cambiar el color a verde al pasar el cursor */
+.submit-button:hover {
+    background-color: #122c36;
 }

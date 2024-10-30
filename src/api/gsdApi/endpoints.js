@@ -1,4 +1,5 @@
 export const CREATE_FORM_POINT_API = '/formulario/crear';
+export const LOGIN_POINT_API = '/auth/login';
 export const getFormPointApi = (id) => `/formulario/${id}`;
 export const getReviewFormPointApi = (id) => `/formulario/${id}/revisar`;
 export const getTeachingSubjectFormPointApi = (id) => `/formulario/${id}/asignatura-docencia`;

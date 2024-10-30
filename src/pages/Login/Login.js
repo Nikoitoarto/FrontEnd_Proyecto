@@ -1,37 +1,54 @@
-import './login.css';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React,  { useState }  from 'react';
+import './login.css'; 
+import { Controller, useForm } from 'react-hook-form';
 import Logo from 'components/Logo';
+import { createSession } from 'services/gsd/loginSvc';
+import { loginPayload } from 'api/gsdApi/payloads/login'
 
-const Login = (props) => {
-    const navigate = useNavigate(); 
-    const handleLogin = (event) => {
-        event.preventDefault(); 
-        localStorage.setItem('authToken', 'fakeLogin');
-        navigate('/main'); // Redirige a la página del menú
-    };
+const Login = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const onSubmit = async (data) => {
+        console.log('Datos del formulario:', data);
+        let response = await createSession(
+            loginPayload(data.usuario, data.contrasena)
+        );
+        if (response.status) {
+            setErrorMessage("");
+           console.log(response.data)
+        } else {
+            setErrorMessage(response.message);
+        }
+    }
+
     return (
-        <div className='login-container'>
-            <Logo/>
-            <div className='login-box'>
-                <form onSubmit={handleLogin}>
-                    <div className='mb-3 text-center'>
-                        <i className="fas fa-user fa-3x mb-2"></i>
-                        <h6 className="mb-3">Autenticación</h6>
+        <div className="login-page">
+            <div className="logo">
+                <Logo/>
+            </div>
+            <div className="login-container">
+                <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        type="text"
+                        placeholder="Usuario"
+                        {...register('usuario', { required: 'El usuario es obligatorio' })}
+                        className="input-field"
+                    />
+                    {errors.usuario && <p className="error-message">{errors.usuario.message}</p>}
+
+                    <input
+                        type="password"
+                        placeholder="Contraseña"
+                        {...register('contrasena', { required: 'La contraseña es obligatoria' })}
+                        className="input-field"
+                    />
+                    {errors.contrasena && <p className="error-message">{errors.contrasena.message}</p>}
+
+                    <div className='error-message-container'>
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
                     </div>
-                    <div className='input-container'>
-                        <div className='mb-3 input-group'>
-                            <label htmlFor="email">Correo Electrónico</label>
-                            <input type="email" placeholder='Ingrese el correo electrónico' className='form-control'/>
-                        </div>
-                        <div className='mb-3 input-group'>
-                            <label htmlFor="password">Contraseña</label>
-                            <input type="password" placeholder='Introduzca la contraseña' className='form-control'/>
-                        </div>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <button type="submit" className='btn btn-success'>Ingresar</button>  
-                    </div>
+                    <button type="submit" className="submit-button">Iniciar sesión</button>
                 </form>
             </div>
         </div>
