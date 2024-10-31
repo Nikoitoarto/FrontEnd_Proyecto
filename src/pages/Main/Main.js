@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './main.css'
 import { useAppContext } from 'context/AppContext';
+import { gsdApiTokenClear } from 'utils/storage';
+import { useNavigate } from 'react-router-dom';
 import Loader from 'components/Loader';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -8,8 +10,10 @@ import Sidebar from 'components/Sidebar';
 import AgendaForm from 'components/AgendaForm';
 import SemiannualAgenda from 'pages/SemiannualAgenda';
 
-const Main = () => {
+const Main = ({setIsLoggedIn}) => {
+    
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const navigate = useNavigate();
     const [menuItem, setMenuItem] = useState('home');
     const { isLoading } = useAppContext();
     
@@ -26,6 +30,11 @@ const Main = () => {
                 return <AgendaForm />;
             case 'teachingManagement':
                 return <SemiannualAgenda />
+            case 'logout':
+                gsdApiTokenClear();
+                setIsLoggedIn(false);
+                navigate("/login");
+                break
             case 'home':
             default:
                 return (

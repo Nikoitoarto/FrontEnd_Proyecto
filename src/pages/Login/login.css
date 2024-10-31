@@ -1,19 +1,12 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #153240;
-    font-family: Arial, sans-serif;
-}
-
 .login-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-color: #153240;
+    font-family: Arial, sans-serif;
 }
 
 .logo {

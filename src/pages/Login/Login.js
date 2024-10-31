@@ -1,27 +1,31 @@
 import React,  { useState }  from 'react';
 import './login.css'; 
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import Logo from 'components/Logo';
 import { createSession } from 'services/gsd/loginSvc';
 import { loginPayload } from 'api/gsdApi/payloads/login'
+import { setGsdApiToken } from 'utils/storage';
 
-const Login = () => {
+const Login = ({setIsLoggedIn}) => {
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        console.log('Datos del formulario:', data);
         let response = await createSession(
             loginPayload(data.usuario, data.contrasena)
         );
         if (response.status) {
             setErrorMessage("");
-           console.log(response.data)
+            setGsdApiToken(response.data.token);
+            setIsLoggedIn(true);
+            navigate("/main")
         } else {
             setErrorMessage(response.message);
         }
     }
-
     return (
         <div className="login-page">
             <div className="logo">

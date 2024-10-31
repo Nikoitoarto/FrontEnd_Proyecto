@@ -16,6 +16,14 @@ export const getGsdApiToken = () => {
     return value;
 };
 
+export const gsdApiTokenClear = () => {
+    try {
+        localStorage.removeItem('gsd_api_token');
+    } catch (error) {
+        console.error('Error al borrar token en app storage', error);
+    }
+};
+
 export const getGsdUserId = () => {
     let value = null;
     try {
