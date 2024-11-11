@@ -11,10 +11,7 @@ const Sidebar = ({ isOpen, toggleSidebar, onMenuClick}) => {
         <nav className="sidebar-nav">
           <ul>
             <li onClick={() => onMenuClick('home')}>Inicio</li>
-            <li onClick={() => onMenuClick('pending')}>Pendientes</li>
             <li onClick={() => onMenuClick('teachingManagement')}>Gestion de Docencia</li>
-            <li onClick={() => onMenuClick('agendaForm')}>Formulario Agenda</li>
-            <li onClick={() => onMenuClick('followUp')}>Seguimiento</li>
             <li onClick={() => onMenuClick('logout')}>Cerrar Sesión</li>
           </ul>
         </nav>

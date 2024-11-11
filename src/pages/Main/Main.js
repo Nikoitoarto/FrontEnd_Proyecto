@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './main.css'
 import { useAppContext } from 'context/AppContext';
-import { gsdApiTokenClear } from 'utils/storage';
+import { localStorageClear } from 'utils/storage';
 import { useNavigate } from 'react-router-dom';
 import Loader from 'components/Loader';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Sidebar from 'components/Sidebar';
 import AgendaForm from 'components/AgendaForm';
+import Welcome from 'components/Welcome';
 import SemiannualAgenda from 'pages/SemiannualAgenda';
 
 const Main = ({setIsLoggedIn}) => {
@@ -31,18 +32,13 @@ const Main = ({setIsLoggedIn}) => {
             case 'teachingManagement':
                 return <SemiannualAgenda />
             case 'logout':
-                gsdApiTokenClear();
+                localStorageClear();
                 setIsLoggedIn(false);
                 navigate("/login");
                 break
             case 'home':
             default:
-                return (
-                    <div>
-                        <h2>Bienvenido a la página principal</h2>
-                        <p>Este es el contenido principal de la aplicación chicos.</p>
-                    </div>
-                );
+               return <Welcome/>;
         }
     };
     return (

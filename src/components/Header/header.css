@@ -3,9 +3,9 @@
 }
 
 .header .logo {
-    width: auto; /* Cambiar el tamaño del logo a una unidad relativa */
-    height: 90px;               /* Ajustar la altura del logo */
-    margin-left: auto;          /* Empujar el logo a la derecha */
+    width: auto;
+    height: 90px;
+    margin-left: auto;
     margin-bottom: 0px !important;
 }
 
@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color:  #153240;/* Azul oscuro */
+    background-color: #153240;
     color: white;
 }
 
@@ -23,5 +23,34 @@
     color: white;
     font-size: 30px;
     cursor: pointer;
-    margin-right: 20px; /* Espacio entre el ícono y el título */
+    margin-right: 20px;
+}
+
+.app-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.app-name {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.user-status {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin: 0 0 0 5px;
+    font-size: 0.85em;
+    color: #f2f5f8;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0bff15; /* Verde para el estado de conexión */
 }

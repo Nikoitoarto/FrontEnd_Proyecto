@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from 'components/Logo';
 import { createSession } from 'services/gsd/loginSvc';
 import { loginPayload } from 'api/gsdApi/payloads/login'
-import { setGsdApiToken } from 'utils/storage';
+import { setGsdApiToken, setGsdUsername, setGsdPersonId} from 'utils/storage';
 
 const Login = ({setIsLoggedIn}) => {
 
@@ -20,6 +20,8 @@ const Login = ({setIsLoggedIn}) => {
         if (response.status) {
             setErrorMessage("");
             setGsdApiToken(response.data.token);
+            setGsdUsername(response.data.usuarioNombre);
+            setGsdPersonId(response.data.personaId)
             setIsLoggedIn(true);
             navigate("/main")
         } else {

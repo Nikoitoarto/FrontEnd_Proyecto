@@ -1,0 +1,24 @@
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Para adaptarse al contenedor */
+    width: 100%; /* Ocupar todo el ancho */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; /* Evita que el padding agregue espacio extra */
+    overflow: hidden; /* Previene el scroll */
+  }
+  
+  .welcome-page h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-page h2 {
+    font-size: 20px;
+    margin-top: 5px;
+  }

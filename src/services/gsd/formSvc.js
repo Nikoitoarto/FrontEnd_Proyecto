@@ -1,5 +1,5 @@
 import api from 'api/gsdApi/apiConfig';
-import { CREATE_FORM_POINT_API, getFormPointApi } from 'api/gsdApi/endpoints';
+import { CREATE_FORM_POINT_API, getFormByIdPointApi } from 'api/gsdApi/endpoints';
 
 export const createForm = async (payload) => {
     let data = {};
@@ -20,7 +20,7 @@ export const getForm = async (id) => {
     let data = {};
     try {
         const response = await api.get(
-            getFormPointApi(id)
+            getFormByIdPointApi(id)
         );
         data = response.data;
     } catch (error) {

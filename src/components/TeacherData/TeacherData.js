@@ -7,15 +7,16 @@ import DatePicker from "react-datepicker";
 import { createForm } from 'services/gsd/formSvc';
 import { createFormPayload } from 'api/gsdApi/payloads/createForm'
 import { useLoadTeacherData } from 'hooks/useLoadTeacherData'
+import { getGsdPersonFullName } from 'utils/storage';
 import { es } from 'date-fns/locale/es';
 
 const TeacherData = () => {
     registerLocale('es', es)
     const fieldRequiredMsg = 'Este campo es requerido';
     const {control, register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
-    const tacherNameValue = watch('tacher_name');
+    const tacherNameValue = getGsdPersonFullName();
 
-    useLoadTeacherData(11, setValue);
+    useLoadTeacherData(0, setValue);
 
     const onSubmit = async (data) => {
         const formattedData = {
