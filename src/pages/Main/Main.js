@@ -8,6 +8,11 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Sidebar from 'components/Sidebar';
 import AgendaForm from 'components/AgendaForm';
+import Asignatura from 'components/Asignatura';
+import ActividadFormativa from 'components/ActividadFormativa';
+import ActividadCientifica from 'components/ActividadCientifica';
+import ActividadCultural from 'components/ActividadCultural';
+import ActividadGestion from 'components/ActividadGestion';
 import Welcome from 'components/Welcome';
 import SemiannualAgenda from 'pages/SemiannualAgenda';
 
@@ -29,6 +34,21 @@ const Main = ({setIsLoggedIn}) => {
         switch (menuItem) {
             case 'agendaForm':
                 return <AgendaForm />;
+
+            case 'Asignatura':
+                return <Asignatura>Asignatura</Asignatura>;
+            
+            case 'ActividadFormativa':
+                return <ActividadFormativa>ActividadFormativa</ActividadFormativa>;
+    
+            case 'ActividadCultural':
+                return <ActividadCultural>ActividadCultural</ActividadCultural>;
+    
+            case 'ActividadGestion':
+                return <ActividadGestion>ActividadGestion</ActividadGestion>;
+                
+            case 'ActividadCientifica':
+                    return <ActividadCientifica>ActividadCientifica</ActividadCientifica>;
             case 'teachingManagement':
                 return <SemiannualAgenda />
             case 'logout':

@@ -12,6 +12,11 @@ const Sidebar = ({ isOpen, toggleSidebar, onMenuClick}) => {
           <ul>
             <li onClick={() => onMenuClick('home')}>Inicio</li>
             <li onClick={() => onMenuClick('teachingManagement')}>Gestion de Docencia</li>
+            <li onClick={() => onMenuClick('Asignatura')}>Asignatura</li>
+            <li onClick={() => onMenuClick('ActividadFormativa')}>ActividadFormativa</li>
+            <li onClick={() =>onMenuClick('ActividadCientifica')}>ActividadCientifica</li>
+            <li onClick={() => onMenuClick('ActividadCultural')}>ActividadCultural</li>
+            <li onClick={() => onMenuClick('ActividadGestion')}>ActividadGestion</li>
             <li onClick={() => onMenuClick('logout')}>Cerrar Sesión</li>
           </ul>
         </nav>

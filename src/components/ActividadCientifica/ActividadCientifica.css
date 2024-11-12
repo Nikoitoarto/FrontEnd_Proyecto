@@ -1,0 +1,166 @@
+/* General container for the form */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+  }
+  
+  ul, ol {
+    list-style-type: none; /* Eliminar viñetas o numeración */
+    padding-left: 0; /* Eliminar el espacio a la izquierda */
+  }
+  
+  /* Styling for the form labels and inputs */
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+    text-transform: uppercase;
+    width: 150px; /* Ancho fijo para que estén alineados */
+    text-align: left; /* Alinear a la izquierda */
+  }
+  
+  .form-horizontal select, .form-horizontal input, .form-horizontal textarea {
+    flex: 1; /* Los inputs ocuparán todo el espacio restante */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Styling for the form section headers */
+  .section-header {
+    background-color: #d3d3d3;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  /* Table container */
+  .table-container {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  table th {
+    background-color: #e9e9e9;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  /* Styling for the footer row in the table */
+  .table-footer {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Checkbox styling */
+  .left-align {
+    text-align: left;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  /* Styling for error messages */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .form-horizontal select, .form-horizontal input, .form-horizontal textarea {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    label {
+      width: 100%; /* En pantallas pequeñas, los labels ocuparán el ancho completo */
+      margin-bottom: 5px;
+      text-align: left;
+    }
+  
+    table, .table-container {
+      overflow-x: auto; /* Agregar scroll horizontal para tablas en pantallas pequeñas */
+    }
+  
+    table th, table td {
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  
+    .activity-table thead, .activity-table tbody, .activity-table tfoot {
+      display: block;
+      width: 100%;
+    }
+  
+    .activity-table th, .activity-table td {
+      display: block;
+      text-align: left;
+      width: 100%;
+    }
+  
+    .activity-form {
+      margin-bottom: 30px; /* Añadir espacio entre los formularios */
+    }
+    
+    .activity-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .activity-table th, .activity-table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    
+    /* Mejoras en el diseño de productos seleccionados */
+    ul {
+      padding: 5px;
+      margin-top: 10px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 0.8em;
+    }
+    
+  }
