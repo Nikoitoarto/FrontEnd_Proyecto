@@ -32,6 +32,14 @@ export const gsdApiTokenClear = () => {
     }
 };
 
+export const setGsdUserId = (value) => {
+    try {
+        localStorage.setItem('gsd_api_user_id', value);
+    } catch (error) {
+        console.error('Error guardando el id usuario en app storage', error);
+    }
+};
+
 export const getGsdUserId = () => {
     let value = null;
     try {
@@ -92,6 +100,42 @@ export const getGsdPersonFullName = () => {
         value = localStorage.getItem('gsd_person_full_name') ?? null;
     } catch (error) {
         console.error('Error obteniendo el nombre completo en app storage', error);
+    }
+    return value;
+};
+
+export const setGsdFormId = (value) => {
+    try {
+        localStorage.setItem('gsd_api_form_id', value);
+    } catch (error) {
+        console.error('Error guardando el id form en app storage', error);
+    }
+};
+
+export const getGsdFormId = () => {
+    let value = null;
+    try {
+        value = localStorage.getItem('gsd_api_form_id') ?? null;
+    } catch (error) {
+        console.error('Error obteniendo el id form en app storage', error);
+    }
+    return value;
+};
+
+export const setGsdRolId = (value) => {
+    try {
+        localStorage.setItem('gsd_api_rol_id', value);
+    } catch (error) {
+        console.error('Error guardando el id rol en app storage', error);
+    }
+};
+
+export const getGsdRolId = () => {
+    let value = null;
+    try {
+        value = localStorage.getItem('gsd_api_rol_id') ?? null;
+    } catch (error) {
+        console.error('Error obteniendo el id rol en app storage', error);
     }
     return value;
 };

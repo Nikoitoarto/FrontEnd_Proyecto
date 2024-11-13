@@ -5,7 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import Logo from 'components/Logo';
 import { createSession } from 'services/gsd/loginSvc';
 import { loginPayload } from 'api/gsdApi/payloads/login'
-import { setGsdApiToken, setGsdUsername, setGsdPersonId} from 'utils/storage';
+import { 
+    setGsdApiToken, 
+    setGsdUsername, 
+    setGsdPersonId,
+    setGsdUserId,
+    setGsdFormId,
+    setGsdRolId
+} from 'utils/storage';
 
 const Login = ({setIsLoggedIn}) => {
 
@@ -21,8 +28,14 @@ const Login = ({setIsLoggedIn}) => {
             setErrorMessage("");
             setGsdApiToken(response.data.token);
             setGsdUsername(response.data.usuarioNombre);
-            setGsdPersonId(response.data.personaId)
+            setGsdPersonId(response.data.personaId);
+            setGsdUserId(response.data.usuarioId);
+            setGsdRolId(response.data.rolId);
             setIsLoggedIn(true);
+            
+            if (response.data.formularioId.length) {
+                setGsdFormId(response.data.formularioId[0]);
+            }
             navigate("/main")
         } else {
             setErrorMessage(response.message);

@@ -20,3 +20,18 @@
     color: #808080; /* Color de texto gris */
     cursor: not-allowed; 
 }
+
+.success-message-container {
+    margin-top: 16px; /* Espacio adicional entre el formulario y el mensaje */
+    margin-bottom: 16px;
+    text-align: center; /* Centrado del mensaje */
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin: 0;
+    padding: 8px;
+    background-color: #e0ffe0; /* Fondo verde claro */
+    border-radius: 5px;
+}
