@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import api from 'api/gsdApi/apiConfig';
-import { getGsdApiToken } from 'utils/storage';
 
 const useAxiosInterceptors = (setIsLoading) => {
 
@@ -9,10 +8,6 @@ const useAxiosInterceptors = (setIsLoading) => {
     const requestInterceptor = api.interceptors.request.use(
       (config) => {
         setIsLoading(true); // Activa el loader al iniciar la solicitud
-        const token = getGsdApiToken();
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
         return config;
       },
       (error) => {

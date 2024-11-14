@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { getForm } from 'services/gsd/formSvc';
 
-export const useLoadTeacherData = (formId, setValue) => {
+export const useLoadTeacherData = (formId, setValue, setIsNextDisabled) => {
     useEffect(() => {
         const loadData = async () => {
             try {
@@ -12,11 +12,12 @@ export const useLoadTeacherData = (formId, setValue) => {
                     setValue('faculty', response.data.facultad, {shouldDirty: true});
                     setValue('academic_period', response.data.periodo, {shouldDirty: true});
                     setValue('custom_date_picker', response.data.fechaFormulario, {shouldDirty: true});
+                    setIsNextDisabled(false);
                 }
             } catch (error) {
                 console.error('Error cargando los datos del formulario: ', error);
             }
         };
         loadData();
-    }, [formId, setValue]);
+    }, [formId, setValue, setIsNextDisabled]);
 };

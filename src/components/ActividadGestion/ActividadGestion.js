@@ -170,10 +170,18 @@ const ActivityForm = ({ activities, selectedActivities, setSelectedActivities, a
     );
 };
 
-const ActividadGestion = () => {
+const ActividadGestion =({changeView}) => 
+{
     const [selectedActivitiesGestion, setSelectedActivitiesGestion] = useState([]);
     const [message, setMessage] = useState('');
     const [errorMessages, setErrorMessages] = useState({});
+
+    const [isPreviewDisabled, setIsPreviewDisabled] = useState(false);
+  
+    const handlePreview = () => {
+      if (isPreviewDisabled) return;
+      changeView('actividadGestion', 'preview');
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -237,11 +245,15 @@ const ActividadGestion = () => {
                     setErrorMessages={setErrorMessages}
                 />
                 <div className="form-button-container">
-                    <button type="button" className="form-button regresar">Regresar</button>
+                    <button 
+                        type="button"
+                        className={`form-button ${isPreviewDisabled ? "disabled-button" : ""}`}
+                        onClick={handlePreview}>
+                            Regresar
+                    </button>
                     <button type="submit" className="form-button guardar" disabled={!isFormValid}>
                         Guardar
                     </button>
-                    <button type="button" className="form-button siguiente">Siguiente</button>
                 </div>
                 {message && (
                     <div className={message === 'Los datos han sido guardados correctamente' ? 'success-message' : 'error-message'}>

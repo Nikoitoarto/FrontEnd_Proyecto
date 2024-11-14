@@ -177,11 +177,26 @@ const ActivityForm = ({
   );
 };
 
-const ActividadCultural = () => {
+const ActividadCultural = ({changeView}) => 
+{
   const [selectedActivitiesExtensiones, setSelectedActivitiesExtensiones] = useState([]);
   const [selectedActivitiesCulturales, setSelectedActivitiesCulturales] = useState([]);
   const [message, setMessage] = useState('');
   const [errorMessages, setErrorMessages] = useState({});
+
+  const [isNextDisabled, setIsNextDisabled] = useState(true);
+  const [isPreviewDisabled, setIsPreviewDisabled] = useState(false);
+
+  const handleNext = () => {
+    if (isNextDisabled) return;
+    changeView('actividadCultural', 'next');
+    
+  };
+
+  const handlePreview = () => {
+    if (isPreviewDisabled) return;
+    changeView('actividadCultural', 'preview');
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -288,7 +303,12 @@ const ActividadCultural = () => {
         />
 
         <div className="form-button-container">
-          <button type="button" className="form-button regresar">Regresar</button>
+          <button 
+              type="button"
+              className={`form-button ${isPreviewDisabled ? "disabled-button" : ""}`}
+              onClick={handlePreview}>
+                  Regresar
+          </button>
           <button
             type="submit"
             className="form-button guardar"
@@ -296,7 +316,12 @@ const ActividadCultural = () => {
           >
             Guardar
           </button>
-          <button type="button" className="form-button siguiente">Siguiente</button>
+          <button 
+              type="button"
+              className={`form-button ${isNextDisabled ? "disabled-button" : ""}`}
+              onClick={handleNext}>
+                  Siguiente
+          </button>
         </div>
 
         {message && (

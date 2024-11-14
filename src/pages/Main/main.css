@@ -81,6 +81,12 @@
     transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
+.disabled-button {
+    background-color: #9b9b9b; /* Color más claro para indicar que está deshabilitado */
+    cursor: not-allowed !important; /* Cambia el cursor para indicar que no es interactivo */
+    opacity: 0.4; /* Opcional: reduce la opacidad para diferenciarlo */
+}
+
 .form-button:hover {
     background-color: #1a4a5d; /* Nuevo color cuando el mouse está sobre el botón */
 }

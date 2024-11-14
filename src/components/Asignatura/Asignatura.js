@@ -3,12 +3,28 @@ import React, { useState, useEffect } from 'react';
 import './asignatura.css';
 
 // Componente para el formulario de asignatura
-const AsignaturaForm = ({ activities, selectedActivities, setSelectedActivities }) => {
+const AsignaturaForm = ({ activities, selectedActivities, setSelectedActivities, changeView}) => {
+  
   const [errorMessages, setErrorMessages] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [totalHorasSemanales, setTotalHorasSemanales] = useState(0);
   const [totalHorasSemestre, setTotalHorasSemestre] = useState(0);
+
+  const [isNextDisabled, setIsNextDisabled] = useState(true);
+  const [isPreviewDisabled, setIsPreviewDisabled] = useState(false);
+
+  const handleNext = () => {
+    if (isNextDisabled) return;
+    changeView('asignaturaDocencia', 'next');
+    
+  };
+
+  const handlePreview = () => {
+    if (isPreviewDisabled) return;
+    changeView('asignaturaDocencia', 'preview');
+  };
+
 
   // Calcula las sumas de las horas
   useEffect(() => {
@@ -199,7 +215,12 @@ const AsignaturaForm = ({ activities, selectedActivities, setSelectedActivities 
         </div>
 
         <div className="form-button-container">
-          <button type="button" className="form-button regresar">Regresar</button>
+          <button 
+              type="button"
+              className={`form-button ${isPreviewDisabled ? "disabled-button" : ""}`}
+              onClick={handlePreview}>
+                  Regresar
+          </button>
           <button
             type="submit"
             className="form-button guardar"
@@ -208,7 +229,12 @@ const AsignaturaForm = ({ activities, selectedActivities, setSelectedActivities 
           >
             Guardar
           </button>
-          <button type="button" className="form-button siguiente">Siguiente</button>
+          <button 
+              type="button"
+              className={`form-button ${isNextDisabled ? "disabled-button" : ""}`}
+              onClick={handleNext}>
+                  Siguiente
+          </button>
         </div>
       </form>
 
@@ -219,7 +245,8 @@ const AsignaturaForm = ({ activities, selectedActivities, setSelectedActivities 
   );
 };
 
-const Asignatura = () => {
+const Asignatura = ({changeView}) => 
+{
   const [selectedActivities, setSelectedActivities] = useState([]);
 
   const actividades = [
@@ -237,6 +264,7 @@ const Asignatura = () => {
         activities={actividades}
         selectedActivities={selectedActivities}
         setSelectedActivities={setSelectedActivities}
+        changeView={changeView}
       />
     </div>
   );

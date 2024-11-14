@@ -14,15 +14,17 @@ import {
     setGsdFormId 
 } from 'utils/storage';
 
-const TeacherData = () => {
+const TeacherData = ({changeView}) => 
+{
     registerLocale('es', es)
     const fieldRequiredMsg = 'Este campo es requerido';
     const {control, register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
     const [successMessage, setSuccessMessage] = useState("");
+    const [isNextDisabled, setIsNextDisabled] = useState(true);
     const tacherNameValue = getGsdPersonFullName();
     const formId = getGsdFormId();
     
-    useLoadTeacherData(formId, setValue);
+    useLoadTeacherData(formId, setValue, setIsNextDisabled);
 
     const onSubmit = async (data) => {
         const formattedData = {
@@ -41,6 +43,12 @@ const TeacherData = () => {
             setGsdFormId(response.data.id);
             setSuccessMessage(response.message)
         }
+    };
+
+    const handleNext = () => {
+        if (isNextDisabled) return;
+        changeView('teacherData', 'next');
+       
     };
     return (
         <div>
@@ -140,6 +148,12 @@ const TeacherData = () => {
                 </div>
                 <div className="form-button-container">
                     <button type="submit" className='form-button'>Guardar</button>
+                    <button 
+                        type="button"
+                        className={`form-button ${isNextDisabled ? "disabled-button" : ""}`}
+                        onClick={handleNext}>
+                            Siguiente
+                    </button>
                 </div>
             </form>
         </div>

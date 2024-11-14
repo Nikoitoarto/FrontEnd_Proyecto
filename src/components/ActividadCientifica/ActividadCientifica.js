@@ -169,10 +169,25 @@ const ActivityForm = ({ activities, selectedActivities, setSelectedActivities, a
     );
 };
 
-const ActividadCientifica = () => {
+const ActividadCientifica = ({changeView}) => 
+{
     const [selectedActivitiesCientifica, setSelectedActivitiesCientifica] = useState([]);
     const [message, setMessage] = useState('');
     const [errorMessages, setErrorMessages] = useState({});
+
+    const [isNextDisabled, setIsNextDisabled] = useState(true);
+    const [isPreviewDisabled, setIsPreviewDisabled] = useState(false);
+  
+    const handleNext = () => {
+      if (isNextDisabled) return;
+      changeView('actividadCientifica', 'next');
+      
+    };
+  
+    const handlePreview = () => {
+      if (isPreviewDisabled) return;
+      changeView('actividadCientifica', 'preview');
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -243,11 +258,21 @@ const ActividadCientifica = () => {
                     setErrorMessages={setErrorMessages}
                 />
                 <div className="form-button-container">
-                    <button type="button" className="form-button regresar">Regresar</button>
+                    <button 
+                        type="button"
+                        className={`form-button ${isPreviewDisabled ? "disabled-button" : ""}`}
+                        onClick={handlePreview}>
+                            Regresar
+                    </button>
                     <button type="submit" className="form-button guardar" disabled={!isFormValid}>
                         Guardar
                     </button>
-                    <button type="button" className="form-button siguiente">Siguiente</button>
+                    <button 
+                        type="button"
+                        className={`form-button ${isNextDisabled ? "disabled-button" : ""}`}
+                        onClick={handleNext}>
+                            Siguiente
+                    </button>
                 </div>
                 {message && (
                     <div className={message === 'Los datos han sido guardados correctamente' ? 'success-message' : 'error-message'}>
